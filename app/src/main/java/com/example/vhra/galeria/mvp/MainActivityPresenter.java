@@ -10,7 +10,7 @@ public class MainActivityPresenter {
 
     IMainActivityPresenter view;
 
-    MainActivityPresenter(IMainActivityPresenter view) {
+    public MainActivityPresenter(IMainActivityPresenter view) {
         this.view = view;
     }
 
@@ -29,11 +29,15 @@ public class MainActivityPresenter {
             }
         }
         view.getFilePaths(medias);
-
     }
 
     private boolean isSupportedFile(String filePath) {
         String ext = filePath.substring((filePath.lastIndexOf(".") + 1), filePath.length());
         return FILE_EXTENSIONS.contains(ext.toLowerCase(Locale.getDefault()));
+    }
+
+    public int countMedias(){
+        List<Media> medias = new ArrayList<>();
+        return medias.size();
     }
 }

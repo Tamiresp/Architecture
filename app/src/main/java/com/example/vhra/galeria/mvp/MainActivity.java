@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivityPres
         mRecyclerView = findViewById(R.id.recycler_medias);
 
         presenter.getFilePaths("Download");
+        presenter.countMedias();
 
     }
 
@@ -36,6 +37,11 @@ public class MainActivity extends AppCompatActivity implements IMainActivityPres
     @Override
     public void getFilePaths(List<Media> mMedias) {
         initRecyclerView(mMedias);
+    }
+
+    @Override
+    public int countMedias() {
+        return mAdapter.getItemCount();
     }
 
     public void initRecyclerView(List<Media> mMedias) {
